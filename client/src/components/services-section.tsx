@@ -1,10 +1,11 @@
 import { Check } from "lucide-react";
+import jessWorkImage from "@assets/JessWork_1753664207897.jpg";
 
 const services = [
   {
     title: "Mobile Bar Rental",
     description: "Complete mobile bar setup with professional equipment, premium glassware, and elegant presentation for any venue.",
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    image: jessWorkImage,
     features: ["Professional bar equipment", "Premium glassware", "Setup & breakdown included"]
   },
   {
