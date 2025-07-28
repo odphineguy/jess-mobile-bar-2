@@ -1,30 +1,36 @@
 import { Expand } from "lucide-react";
 import { Instagram } from "lucide-react";
+import drink1 from "@assets/drink_1753664259691.jpg";
+import drink2 from "@assets/drink1_1753664259699.jpg";
+import drink3 from "@assets/drink2_1753664259700.jpg";
+import drink4 from "@assets/drink3_1753664259700.jpg";
+import drink5 from "@assets/drink5_1753664259700.jpg";
+import drink6 from "@assets/drink6_1753664259700.jpg";
 
 const galleryImages = [
   {
-    src: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600",
-    alt: "Mobile bar setup"
+    src: drink1,
+    alt: "Signature strawberry cocktails with elegant garnish"
   },
   {
-    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600",
-    alt: "Cocktail preparation"
+    src: drink2,
+    alt: "Craft cocktails with fresh fruit garnishes"
   },
   {
-    src: "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600",
-    alt: "Event party atmosphere"
+    src: drink3,
+    alt: "Spicy rim cocktail with jalapeño and lime garnish"
   },
   {
-    src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600",
-    alt: "Luxury bartending service"
+    src: drink4,
+    alt: "Hand-crafted cocktail with orange slice garnish"
   },
   {
-    src: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600",
-    alt: "Premium cocktail service"
+    src: drink5,
+    alt: "Grapefruit cocktail with spiced rim"
   },
   {
-    src: "https://images.unsplash.com/photo-1516997121675-4c2d1684aa3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600",
-    alt: "Outdoor mobile bar"
+    src: drink6,
+    alt: "Artisan cocktail with rosemary and lime garnish"
   }
 ];
 
