@@ -91,7 +91,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 Jess's Mobile Bar. All rights reserved. | Professional mobile bartending services in Los Angeles, Orange County, and Inland Empire.</p>
+          <p>&copy; 2025 Jess's Mobile Bar. All rights reserved. | Professional mobile bartending services in Los Angeles, Orange County, and Inland Empire.</p>
         </div>
       </div>
     </footer>

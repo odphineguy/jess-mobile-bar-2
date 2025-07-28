@@ -1,4 +1,5 @@
 import { ChevronDown, Phone } from "lucide-react";
+import logoPath from "@assets/Jess_1753662801075.png";
 
 export default function HeroSection() {
   const scrollToSection = (sectionId: string) => {
@@ -17,23 +18,24 @@ export default function HeroSection() {
       <div 
         className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-30"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
+          backgroundImage: "url('https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
         }}
       ></div>
       
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <div className="mb-8">
-          <div className="mx-auto h-48 w-48 mb-6 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
-            <div className="text-center">
-              <div className="font-display text-4xl font-bold mb-2">Jess</div>
-              <div className="text-sm tracking-[3px] font-medium">MOBILE BAR</div>
-            </div>
+          <div className="mx-auto h-48 w-48 mb-6 bg-white/10 rounded-lg flex items-center justify-center backdrop-blur-sm p-4">
+            <img 
+              src={logoPath} 
+              alt="Jess's Mobile Bar Logo"
+              className="w-full h-full object-contain"
+            />
           </div>
         </div>
         
         <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
           Premium Mobile 
-          <span className="block text-accent-gold">Bartending Services</span>
+          <span className="block text-white">Bartending Services</span>
         </h1>
         
         <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light leading-relaxed">

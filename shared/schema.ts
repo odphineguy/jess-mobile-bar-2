@@ -20,6 +20,13 @@ export const inquiries = pgTable("inquiries", {
 export const insertInquirySchema = createInsertSchema(inquiries).omit({
   id: true,
   createdAt: true,
+}).extend({
+  phone: z.string().optional(),
+  eventType: z.string().optional(),
+  guestCount: z.string().optional(),
+  eventDate: z.string().optional(),
+  location: z.string().optional(),
+  message: z.string().optional(),
 });
 
 export type InsertInquiry = z.infer<typeof insertInquirySchema>;

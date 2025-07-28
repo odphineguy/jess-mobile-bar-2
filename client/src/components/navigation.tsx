@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import logoPath from "@assets/Jess_1753662801075.png";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,9 +29,11 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <div className="font-display text-2xl font-bold bg-purple-gradient bg-clip-text text-transparent">
-              Jess's Mobile Bar
-            </div>
+            <img 
+              src={logoPath} 
+              alt="Jess's Mobile Bar"
+              className="h-12 w-auto"
+            />
           </div>
           
           {/* Desktop Navigation */}

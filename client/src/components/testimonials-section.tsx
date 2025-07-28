@@ -38,7 +38,7 @@ export default function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
               <div className="flex items-center mb-4">
-                <div className="flex text-accent-gold">
+                <div className="flex text-accent-purple">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={16} fill="currentColor" />
                   ))}
