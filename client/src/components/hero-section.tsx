@@ -18,7 +18,7 @@ export default function HeroSection() {
       <div 
         className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-30"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
+          backgroundImage: "url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
         }}
       ></div>
       
