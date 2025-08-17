@@ -15,10 +15,15 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname, "client"),
   base: "/jess-mobile-bar-2/",
-  build: {
+    build: {
     outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
-
+    rollupOptions: {
+      input: {
+        main: path.resolve(import.meta.dirname, "client", "index.html"),
+        test: path.resolve(import.meta.dirname, "client", "test.html"),
+      },
+    },
   },
   server: {
     fs: {
