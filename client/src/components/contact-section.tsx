@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { insertInquirySchema, type InsertInquiry } from "@shared/schema";
-import { apiRequest } from "@/lib/queryClient";
+import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Instagram, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,11 +10,27 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
+// Form validation schema
+const contactFormSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  email: z.string().email("Please enter a valid email"),
+  phone: z.string().optional(),
+  eventType: z.string().min(1, "Please select an event type"),
+  guestCount: z.string().min(1, "Please provide guest count"),
+  eventDate: z.string().min(1, "Please select an event date"),
+  location: z.string().min(1, "Please provide event location"),
+  message: z.string().optional(),
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
+
 export default function ContactSection() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const form = useForm<InsertInquiry>({
-    resolver: zodResolver(insertInquirySchema),
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -30,28 +44,36 @@ export default function ContactSection() {
     }
   });
 
-  const submitInquiry = useMutation({
-    mutationFn: async (data: InsertInquiry) => {
-      return await apiRequest("POST", "/api/inquiries", data);
-    },
-    onSuccess: () => {
-      toast({
-        title: "Quote Request Sent!",
-        description: "Thank you for your inquiry! We will contact you within 24 hours.",
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true);
+    try {
+      // Using Formspree for form submission
+      const response = await fetch("https://formspree.io/f/mrblvpze", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
-      form.reset();
-    },
-    onError: (error) => {
+
+      if (response.ok) {
+        toast({
+          title: "Quote Request Sent!",
+          description: "Thank you for your inquiry! We will contact you within 24 hours.",
+        });
+        form.reset();
+      } else {
+        throw new Error("Failed to submit form");
+      }
+    } catch (error) {
       toast({
         title: "Error",
         description: "Failed to submit your request. Please try again or call us directly.",
         variant: "destructive",
       });
-    },
-  });
-
-  const onSubmit = (data: InsertInquiry) => {
-    submitInquiry.mutate(data);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -221,9 +243,9 @@ export default function ContactSection() {
                 <Button 
                   type="submit" 
                   className="w-full bg-purple-gradient hover:opacity-90 text-white px-8 py-4 rounded-lg font-semibold text-lg"
-                  disabled={submitInquiry.isPending}
+                  disabled={isSubmitting}
                 >
-                  {submitInquiry.isPending ? "Sending..." : "Send Quote Request"}
+                  {isSubmitting ? "Sending..." : "Send Quote Request"}
                 </Button>
               </form>
             </Form>
